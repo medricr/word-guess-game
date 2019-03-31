@@ -45,7 +45,24 @@ propmt user input
 $(document).ready(function() {
 
 // HANGMAN GAME VAR DECLARATIONS
-    var word_bank=["federation","starshep","replicater","phaser","warp","shuttle"];
+
+ // player STRIKE counter
+ var player_strikes=0;
+
+ var correct_guess=false;
+
+ var player_win=false;
+
+ var guesses_left = 6;
+
+ var player_wins = 0;
+
+ var player_losses = 0;
+
+ var guesses = [];
+
+ lbl: start:
+    var word_bank=["federation","starship","replicator","phaser","warp","shuttle"];
     // choose word from word bank and assign it to the TARGET variable
     var target=word_bank[Math.floor(Math.random() * word_bank.length)];
 
@@ -55,16 +72,12 @@ $(document).ready(function() {
     for(i=0; i<target.length; i++) {
         mirror.push("_");
     }
-    // player STRIKE counter
-    var player_strikes=0;
-
-    var correct_guess=false;
-
-    var player_win=false;
+   
 
 /* HANGMAN GAME LOGIC */
 var str = mirror.join(' ');
 $("#mirror_display").text(str);
+$("#guesses-left").text(guesses_left)
         // when the user presses a key
         document.onkeyup=function(event) {
         // reset their guess status to 'false'
@@ -89,12 +102,20 @@ $("#mirror_display").text(str);
         if(!correct_guess){
             // increase player strikes on incorrect guess
             player_strikes++;
+            guesses_left -=1;
+            $("#guesses-left").text(guesses_left)
         }
 
         if(player_strikes == 6) {
             // if the user has 6 strikes, they lose
+            player_losses +=1;
+            $("#loss-tracker").text(player_losses);
             $("#win-or-lose").text("u lose :((((")
         }
+
+        guesses.push(event.key);
+        $("#letters-guessed").text(guesses);
+
 
         
         $("#target_display").text(target);
@@ -103,11 +124,16 @@ $("#mirror_display").text(str);
 
         if(player_win) {
             $("#win-or-lose").text("you win!");
+            player_wins +=1;
+            $("#win-tracker").text(player_wins);
         }
 
         
 
         }
+$(".reset").on("click",function () {
+    continue start;
 
+})
     
 })
