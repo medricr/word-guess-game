@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <title>Word Guess Game</title>
+    <meta charset="UTF-8">
+    <!-- Reset -->
+    <link rel="reset" href="assets/css/reset.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- container for all webpage elements -->
+    <div id="container">
+        <div class="row">
+            <div class="col-sm-12 text-center mt-2">
+                <h1>HANGMAN</h1>
+                <div class="row mt-4">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-6">    
+                        <p>Welcome to the holo-deck, cadet! The captain has called on you, based on your invalueble expertise, to enter the ships computer and help reprogram its word-bank. Best of luck!</p>
+                    </div>
+                    <div class="col-sm-3"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5" id="game-display">
+                <div class="col-sm-4 text-center">
+                    <h4>Wins: <span id="win-tracker"></span></h4>
+                    <h4>Losses: <span id="loss-tracker"></span></h4>
+                </div>
+                <div class="col-sm-4 text-center">   
+                    <h2 id=mirror_display>This is the mirror word: </h2>
+                </div>
+                <div class="col-sm-4 text-center">
+                    <div id=row>
+                        <h4>Guesses Left: <span id="guesses-left"></span></h4>
+                    </div>
+                    <div id=row>
+                        <h4>Letters Guessed: <span id="letters-guessed"></span> </h4>
+                    </div>
+                </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-sm-12 text-center" id="endgame-screen">
+                <h1 id=win-or-lose> </h1>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-sm-12 text-center">
+                <button class="btn btn-warning">Reset?</button>
+            </div>
+        </div>
+
+        <script src="assets/javascript/game.js"></script>
+    </div>
+
+</body>
+
+</html>
