@@ -110,7 +110,7 @@ $("#guesses-left").text(guesses_left)
             // if the user has 6 strikes, they lose
             player_losses +=1;
             $("#loss-tracker").text(player_losses);
-            $("#win-or-lose").text("u lose :((((")
+            $("#win-or-lose").text("You Lose...")
         }
 
         guesses.push(event.key);
@@ -123,7 +123,7 @@ $("#guesses-left").text(guesses_left)
         $("#mirror_display").text(str);
 
         if(player_win) {
-            $("#win-or-lose").text("you win!");
+            $("#win-or-lose").text("You Win!");
             player_wins +=1;
             $("#win-tracker").text(player_wins);
         }
@@ -132,7 +132,7 @@ $("#guesses-left").text(guesses_left)
 
         }
 $(".reset").on("click",function () {
-    continue start;
+    location.reload();
 
 })
     
